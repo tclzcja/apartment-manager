@@ -1,9 +1,208 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>Main page</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../Api/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
-<p>Test for github by Arthur Hennes</p>
+
+<div id="login">
+	<!--Login screen-->
+	<p>Please provide your identification codes:</p>
+	<p>E-mail:</p>
+    <input type="email" name="email">
+	<p>Password:</p>
+	<input type="password"  name="Password">
+    <input type="submit" value="Connection" onClick="connection()">
+</div>
+
+<div id="deny">
+Access Denied
+</div>
+
+<div id="roleChoice">
+	<!--Role choice screen-->
+  <p>Please select your role:</p>
+    <input type="button" value="Tenant" onClick="accessTenantMain()">
+    <input type="button" value="Superintendent" onClick="accessSuperMain()">
+    <input type="button" value="Building owner" onClick="accessOwnerMain()">
+</div>
+
+<div id="headerTenant">
+	<!--Tenant's header all across the app-->
+	<p>Tenant Connect</p>
+    <p>Tenant: ---</p>
+    <p><input type="button" value="Logout" onClick="main()"></p>
+    <hr>
+</div>
+
+<div id="headerSuper">
+	<!--Super's header all across the app-->
+	<p>Superintendent Connect</p>
+    <p>Superintendent: ---</p>
+    <p><input type="button" value="Logout" onClick="main()"></p>
+    <hr>
+</div>
+
+<div id="headerOwner">
+	<!--Owner's header all across the app-->
+	<p>Owner Connect</p>
+    <p>Owner: ---</p>
+    <p><input type="button" value="Logout" onClick="main()"></p>
+    <hr>
+</div>
+
+<div id="tenantMain">
+	<!--Tenant's homepage-->
+    <input type="button" value="View open requests" onClick="displayOngoingRequests()">
+    <p>Open a new request:</p>
+    <ol>
+    	<li>Fix me!</li>
+        <ul>
+        	<li>Category 1</li>
+            <ul>
+            	<li>Request type 1 <input type="button" value="Send" onClick="WRCreationForm()"></li>
+                <li>Request type 2 <input type="button" value="Send" onClick="WRCreationForm()"></li>
+            </ul>
+            <li>Category 2</li>
+        </ul>
+        <li>Infestations</li>
+        <li>Outdoor maintenance</li>
+        <li>Doorman notifications</li>
+    </ol>
+    </div>
+
+<div id="superMain">
+	<!--Superintendent's homepage-->
+    <input type="button" value="Manage open requests" onClick="displayOngoingRequests()">
+</div>
+
+<div id="ownerMain">
+	<!--Owner's homepage-->
+    <input type="button" value="View open requests" onClick="displayOngoingRequests()">
+</div>
+
+<div id=WRCreationForm>
+	<!--Creation form of the Work request-->
+    <p>Building: <select></select></p>
+    <p>Apartment: <select></select></p>
+    <p>Details: <input type="text"></p>
+    <p><input type="submit" onClick="WRCreate()"></p>
+</div>
+
+<div id="displayOngoingRequests">
+	<!--Ongoing requests display for all profiles-->
+  <p>Ongoing requests:</p>
+    <table width="527" border="1">
+  <tbody>
+    <tr>
+      <th width="107" scope="col">Work request #</th>
+      <th width="187" scope="col">Type</th>
+      <th width="149" scope="col">Status</th>
+      <th width="56" scope="col">Details</th>
+    </tr>
+    <tr>
+      <!--Current content of this table fake and must be replaced by dynamic content depending on the attributes of the user-->
+      <td align="center">WR-0001</td>
+      <td align="center">Roach infestation</td>
+      <td align="center">Submitted</td>
+      <td align="center"><input type="button" value="View" onClick="detailViewWR()"></td>
+    </tr>
+    <tr>
+      <td align="center">...</td>
+      <td align="center">...</td>
+      <td align="center">...</td>
+      <td align="center">...</td>
+    </tr>
+  </tbody>
+</table>
+<p><input type="button" value="Back" onClick="backToMain()"></p>
+</div>
+
+<div id="detailViewWR">
+	<!--Shows the detailed view of a work request-->
+	<p>Detailed view:</p>
+  <p>Tenant information:</p>
+    <table width="527" border="1">
+  <tbody>
+    <tr>
+      <th width="193" align="left" scope="row">Full name</th>
+      <td width="318">...</td>
+    </tr>
+    <tr>
+      <th align="left" scope="row">Building</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th align="left" scope="row">Apartment</th>
+      <td>...</td>
+    </tr>
+  </tbody>
+</table>
+	<p>Work request:</p>
+<table width="527" border="1">
+  <tbody>
+    <tr>
+      <th width="193" align="left" scope="row">Work Request ID</th>
+      <td width="318">...</td>
+    </tr>
+    <tr>
+      <th align="left" scope="row">Work Request Type</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th align="left" scope="row">Date of Submission</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th align="left" scope="row">Details</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th align="left" scope="row">Planned date of resolution</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th align="left" scope="row">First response</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th align="left" scope="row">Date of resolution</th>
+      <td>...</td>
+    </tr>
+  </tbody>
+</table>
+<p>Status:</p>
+<table width="527" border="1">
+  <tbody>
+    <tr>
+      <th width="193" align="left" scope="row">Current status</th>
+      <td width="318">...</td>
+    </tr>
+  </tbody>
+</table>
+<p><input type="button" value="Back" onClick="displayOngoingRequests()"></p>
+</div>
+
+<div id="UpdateWR">
+	<!--Superintendent's buton to respond to workrequests (appears in WR's detailed view)-->
+    	<p><input type="button" value="Update Work Request" onClick="updateWR()"></p>
+</div>
+
+<div id="firstResponse">
+	<!--Screen in which the superintendent first responds to the work request-->
+    <p>Planned date of resolution: <input type="date"></p>
+    <p>First response: <input type="text"></p>    
+    <input type="submit" onClick="firstResponseSubmit()">
+</div>
+
+<div id="resolution">
+	<!--Screen in which the superintendent closes the work request-->
+    <p>Date of resolution: <input type="date"></p>
+    <input type="submit" onClick="resolutionSubmit()">
+</div>
+
 </body>
 </html>
