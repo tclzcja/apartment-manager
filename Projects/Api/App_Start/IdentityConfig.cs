@@ -19,7 +19,7 @@ namespace Api
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
-            var manager = new ApplicationUserManager(new UserStore<IdentityUser>(context.Get<AMDbContext>()));
+            var manager = new ApplicationUserManager(new UserStore<IdentityUser>(context.Get<AppDbContext>()));
             // 配置用户名的验证逻辑
             //manager.UserValidator = new UserValidator<UserModel>(manager)
             //{
@@ -56,7 +56,7 @@ namespace Api
             IdentityFactoryOptions<ApplicationRoleManager> options, IOwinContext context)
         {
             return new ApplicationRoleManager(
-                new RoleStore<IdentityRole>(context.Get<AMDbContext>()));
+                new RoleStore<IdentityRole>(context.Get<AppDbContext>()));
         }
     }
 }

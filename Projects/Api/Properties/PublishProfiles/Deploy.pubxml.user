@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\Jingan Chen\SkyDrive\Projects\New York University\Dev of Web and Mob App\AM\Deployment</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Areas/HelpPage/HelpPage.css">
+      <publishTime>12/01/2014 18:19:17</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/Api.cshtml">
+      <publishTime>12/01/2014 18:19:17</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ApiGroup.cshtml">
+      <publishTime>12/01/2014 18:19:17</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/CollectionModelDescription.cshtml">
+      <publishTime>12/01/2014 18:19:17</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ComplexTypeModelDescription.cshtml">
+      <publishTime>12/01/2014 18:19:17</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/DictionaryModelDescription.cshtml">
+      <publishTime>12/01/2014 18:19:17</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/EnumTypeModelDescription.cshtml">
+      <publishTime>12/01/2014 18:19:17</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/HelpPageApiModel.cshtml">
+      <publishTime>12/01/2014 18:19:17</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ImageSample.cshtml">
+      <publishTime>12/01/2014 18:19:17</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/InvalidSample.cshtml">
+      <publishTime>12/01/2014 18:19:17</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/KeyValuePairModelDescription.cshtml">
+      <publishTime>12/01/2014 18:19:17</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ModelDescriptionLink.cshtml">
+      <publishTime>12/01/2014 18:19:16</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/Parameters.cshtml">
+      <publishTime>12/01/2014 18:19:16</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/Samples.cshtml">
+      <publishTime>12/01/2014 18:19:16</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/SimpleTypeModelDescription.cshtml">
+      <publishTime>12/01/2014 18:19:16</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/TextSample.cshtml">
+      <publishTime>12/01/2014 18:19:16</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/Index.cshtml">
+      <publishTime>12/01/2014 18:19:16</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/ResourceModel.cshtml">
+      <publishTime>12/01/2014 18:19:16</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Shared/_Layout.cshtml">
+      <publishTime>12/01/2014 18:19:16</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Web.config">
+      <publishTime>12/01/2014 19:47:50</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/_ViewStart.cshtml">
+      <publishTime>12/01/2014 18:19:10</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>11/10/2014 21:13:06</publishTime>
+    </File>
+    <File Include="bin/Api.dll">
+      <publishTime>12/04/2014 14:26:58</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>12/04/2014 15:35:07</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>12/04/2014 15:35:07</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>11/10/2014 21:13:07</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>11/10/2014 21:13:07</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
+      <publishTime>11/10/2014 21:13:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.dll">
+      <publishTime>11/10/2014 21:13:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Owin.dll">
+      <publishTime>11/10/2014 21:13:08</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CSharp.dll">
+      <publishTime>08/13/2013 01:19:06</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>12/01/2014 19:47:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>12/01/2014 19:47:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
+      <publishTime>12/01/2014 19:47:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>12/01/2014 19:47:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Facebook.dll">
+      <publishTime>12/01/2014 19:47:49</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Google.dll">
+      <publishTime>12/01/2014 19:47:49</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.MicrosoftAccount.dll">
+      <publishTime>12/01/2014 19:47:49</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.OAuth.dll">
+      <publishTime>12/01/2014 19:47:49</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Twitter.dll">
+      <publishTime>12/01/2014 19:47:49</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>11/10/2014 21:13:04</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>12/01/2014 19:47:49</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>11/10/2014 21:13:08</publishTime>
+    </File>
+    <File Include="bin/System.ComponentModel.DataAnnotations.dll">
+      <publishTime>08/13/2013 01:19:06</publishTime>
+    </File>
+    <File Include="bin/System.Configuration.dll">
+      <publishTime>08/13/2013 01:19:06</publishTime>
+    </File>
+    <File Include="bin/System.Data.DataSetExtensions.dll">
+      <publishTime>08/13/2013 01:19:06</publishTime>
+    </File>
+    <File Include="bin/System.Data.dll">
+      <publishTime>08/13/2013 01:19:06</publishTime>
+    </File>
+    <File Include="bin/System.dll">
+      <publishTime>08/13/2013 01:19:06</publishTime>
+    </File>
+    <File Include="bin/System.Drawing.dll">
+      <publishTime>08/13/2013 01:19:06</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.dll">
+      <publishTime>08/13/2013 01:19:06</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>12/01/2014 19:47:46</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.WebRequest.dll">
+      <publishTime>08/13/2013 01:19:06</publishTime>
+    </File>
+    <File Include="bin/System.Runtime.Serialization.dll">
+      <publishTime>08/13/2013 01:19:06</publishTime>
+    </File>
+    <File Include="bin/System.Web.Abstractions.dll">
+      <publishTime>08/13/2013 01:19:06</publishTime>
+    </File>
+    <File Include="bin/System.Web.ApplicationServices.dll">
+      <publishTime>08/13/2013 01:19:06</publishTime>
+    </File>
+    <File Include="bin/System.Web.Cors.dll">
+      <publishTime>12/01/2014 19:47:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.dll">
+      <publishTime>08/13/2013 01:19:06</publishTime>
+    </File>
+    <File Include="bin/System.Web.Entity.dll">
+      <publishTime>08/13/2013 01:19:06</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>12/01/2014 19:47:47</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.Cors.dll">
+      <publishTime>12/01/2014 19:47:47</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>12/01/2014 19:47:47</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.Owin.dll">
+      <publishTime>12/01/2014 19:47:47</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>12/01/2014 19:47:47</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>12/01/2014 19:47:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>11/10/2014 21:13:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>12/01/2014 19:47:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Routing.dll">
+      <publishTime>08/13/2013 01:19:06</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>12/01/2014 19:47:47</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>12/01/2014 19:47:47</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>12/01/2014 19:47:47</publishTime>
+    </File>
+    <File Include="bin/System.Xml.dll">
+      <publishTime>08/13/2013 01:19:06</publishTime>
+    </File>
+    <File Include="bin/System.Xml.Linq.dll">
+      <publishTime>08/13/2013 01:19:06</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>11/10/2014 21:13:06</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/EntityFramework.resources.dll">
+      <publishTime>12/01/2014 19:47:46</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/EntityFramework.SqlServer.resources.dll">
+      <publishTime>12/01/2014 19:47:46</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Optimization.resources.dll">
+      <publishTime>12/01/2014 19:47:46</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>12/01/2014 18:19:12</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>12/01/2014 18:19:12</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>12/01/2014 18:19:10</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>12/01/2014 18:19:12</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>12/01/2014 18:19:12</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>12/01/2014 18:19:12</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>12/01/2014 18:19:12</publishTime>
+    </File>
+    <File Include="Packages.config">
+      <publishTime>12/01/2014 19:47:50</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>12/04/2014 15:35:04</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>12/01/2014 18:19:12</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>12/01/2014 18:19:12</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>12/01/2014 18:19:14</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>12/01/2014 18:19:14</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.map">
+      <publishTime>12/01/2014 18:19:14</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>12/01/2014 18:19:21</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>12/01/2014 18:19:21</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>12/01/2014 18:19:21</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>12/01/2014 18:19:21</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>12/01/2014 18:19:17</publishTime>
+    </File>
+    <File Include="Scripts/respond.js">
+      <publishTime>12/01/2014 18:19:17</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>12/01/2014 18:19:17</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>12/01/2014 18:19:17</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>12/01/2014 18:19:10</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>12/01/2014 18:19:10</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>12/01/2014 18:19:10</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>12/01/2014 19:47:50</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>12/01/2014 18:19:10</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>12/04/2014 15:32:08</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
