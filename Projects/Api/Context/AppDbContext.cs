@@ -10,8 +10,11 @@ namespace Api.Context
     public class AppDbContext : IdentityDbContext<IdentityUser>
     {
         public DbSet<Models.ProfileModel> Profiles { get; set; }
+        public DbSet<Models.ApartmentModel> Apartments { get; set; }
+        public DbSet<Models.BuildingModel> Buildings { get; set; }
+        public DbSet<Models.RequestModel> Requests { get; set; }
 
-        public AppDbContext() : base("DefaultConnection") { }
+        public AppDbContext() : base("GoDaddyConnection") { }
 
         public static AppDbContext Create()
         {

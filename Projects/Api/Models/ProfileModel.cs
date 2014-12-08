@@ -14,9 +14,11 @@ namespace Api.Models
         public string ID { get; set; }
         [ForeignKey("ID")]
         public IdentityUser User { get; set; }
-        public RoleType Role { get; set; }
+
         public string Name { get; set; }
+
         public virtual List<ApartmentModel> Apartments { get; set; }
+
         public virtual List<BuildingModel> Buildings { get; set; }
     }
 }

@@ -11,9 +11,12 @@ namespace Api.Models
     {
         [Key]
         public string ID { get; set; }
+        public int Number { get; set; }
+
         public string BuildingID { get; set; }
         [ForeignKey("BuildingID")]
-        public BuildingModel Building { get; set; }
-        public int Number { get; set; }
+        public virtual BuildingModel Building { get; set; }
+
+        public virtual List<ProfileModel> Tenants { get; set; }
     }
 }

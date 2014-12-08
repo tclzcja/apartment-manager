@@ -19,11 +19,7 @@ namespace Api.Models
     {
         Creating = 0,
         New = 1,
-    }
-
-    public enum RoleType
-    {
-        Tenant = 0,
-        Superintenent = 1
+        Responsed = 2,
+        Done = 3
     }
 }
