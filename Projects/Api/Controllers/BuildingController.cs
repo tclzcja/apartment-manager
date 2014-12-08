@@ -23,7 +23,7 @@ namespace Api.Controllers
 
         [HttpPost]
         [Route("api/building/create")]
-        public async Task<HttpResponseMessage> Create([FromBody]BuildingModel value)
+        public HttpResponseMessage Create([FromBody]BuildingModel value)
         {
             DB = new AppDbContext();
 
@@ -32,36 +32,43 @@ namespace Api.Controllers
                 ID = Guid.NewGuid().ToString(),
                 Name = value.Name,
                 Address = value.Address,
-                Superintendents = new List<ProfileModel>(),
-                Apartments = new List<ApartmentModel>()
+                Superintendents = value.Superintendents,
+                Apartments = null
             };
 
             if (value.Superintendents.Count > 0)
             {
-                O.Superintendents.Add(await DB.Profiles.SingleAsync(p => p.ID == value.Superintendents[0].ID));
+                var id = value.Superintendents[0].ID;
+                O.Superintendents[0] = DB.Profiles.Single(p => p.ID == id);
             }
 
             DB.Buildings.Add(O);
 
-            await DB.SaveChangesAsync();
+            DB.SaveChanges();
 
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
-        [HttpGet]
-        [Route("api/building/get")]
-        public async Task<List<BuildingModel>> Get()
+        [HttpPost]
+        [Route("api/building/multiple")]
+        public async Task<List<BuildingModel>> Multiple()
         {
             DB = new AppDbContext();
-            return await DB.Buildings.ToListAsync();
+
+            var result = await DB.Buildings.ToListAsync();
+
+            return result;
         }
 
-        [HttpGet]
-        [Route("api/building/get/{id}")]
-        public async Task<BuildingModel> Get(string id)
+        [HttpPost]
+        [Route("api/building/single")]
+        public async Task<JsonResult<BuildingModel>> Single([FromBody]BuildingModel value)
         {
             DB = new AppDbContext();
-            return await DB.Buildings.SingleAsync(b => b.ID == id);
+
+            var result = await DB.Buildings.SingleAsync(b => b.ID == value.ID);
+
+            return Json(result);
         }
     }
 }

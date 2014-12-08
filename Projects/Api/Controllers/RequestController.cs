@@ -87,32 +87,51 @@ namespace Api.Controllers
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
-        [HttpGet]
-        [Route("api/request/get")]
-        public async Task<List<RequestModel>> Get()
+        [HttpPost]
+        [Route("api/request/multiple")]
+        public async Task<JsonResult<List<RequestModel>>> Multiple()
         {
             DB = new AppDbContext();
 
-            return await DB.Requests.ToListAsync();
+            var result = await DB.Requests.ToListAsync();
+
+            foreach (var r in result)
+            {
+                r.Apartment.Building = null;
+                r.Apartment.Tenants = null;
+
+                r.RequestTenant.Apartments = null;
+                r.RequestTenant.Buildings = null;
+
+                r.ResponseSuperintenent.Apartments = null;
+                r.ResponseSuperintenent.Buildings = null;
+            }
+
+            return Json(result);
         }
 
-        [HttpGet]
-        [Route("api/request/get/{id}")]
-        public async Task<RequestModel> Get(string id)
-        {
-            DB = new AppDbContext();
-            return await DB.Requests.SingleAsync(r => r.ID == id);
-        }
-
-        [HttpGet]
-        [Route("api/request/get/profile/{profileid}")]
-        public async Task<List<RequestModel>> GetByProfile(string profileid)
+        [HttpPost]
+        [Route("api/request/multiple/profile")]
+        public async Task<JsonResult<List<RequestModel>>> MultipleByProfile(string profileid)
         {
             DB = new AppDbContext();
 
             var P = await DB.Profiles.SingleAsync(p => p.ID == profileid);
 
-            return await DB.Requests.Where(r => r.Apartment.Building.Superintendents.Contains(P)).ToListAsync();
+            var result = await DB.Requests.Where(r => r.Apartment.Building.Superintendents.Contains(P)).ToListAsync();
+
+            return Json(result);
+        }
+
+        [HttpPost]
+        [Route("api/request/single")]
+        public async Task<JsonResult<RequestModel>> Single([FromBody]RequestModel value)
+        {
+            DB = new AppDbContext();
+
+            var result = await DB.Requests.SingleAsync(r => r.ID == value.ID);
+
+            return Json(result);
         }
     }
 }

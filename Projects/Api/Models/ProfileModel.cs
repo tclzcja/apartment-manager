@@ -13,7 +13,7 @@ namespace Api.Models
         [Key]
         public string ID { get; set; }
         [ForeignKey("ID")]
-        public IdentityUser User { get; set; }
+        public virtual IdentityUser User { get; set; }
 
         public string Name { get; set; }
 

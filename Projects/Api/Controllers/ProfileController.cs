@@ -14,21 +14,10 @@ using System.Data.Entity;
 using System.Web;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Http.Results;
+using Newtonsoft.Json;
 
 namespace Api.Controllers
 {
-    public class ProfileActionApartmentModel
-    {
-        public string ProfileID { get; set; }
-        public string ApartmentID { get; set; }
-    }
-
-    public class ProfileActionBuildingModel
-    {
-        public string ProfileID { get; set; }
-        public string BuildingID { get; set; }
-    }
-
     [AllowAnonymous]
     public class ProfileController : ApiController
     {
@@ -36,57 +25,78 @@ namespace Api.Controllers
 
         [HttpPost]
         [Route("api/profile/register")]
-        public async Task<HttpResponseMessage> Register([FromBody]ProfileModel value)
+        public HttpResponseMessage Register([FromBody]ProfileModel value)
         {
             DB = new AppDbContext();
-            var AUM = new ApplicationUserManager(new UserStore<IdentityUser>(DB));
+            var AUM = new AppUserManager(new UserStore<IdentityUser>(DB));
 
             var u = new IdentityUser(value.User.Email);
+            u.Email = value.User.Email;
+            u.EmailConfirmed = true;
 
-            await AUM.CreateAsync(u, "default");
+            AUM.Create(u, "default");
 
             var profile = new ProfileModel()
             {
                 ID = Guid.NewGuid().ToString(),
                 User = u,
                 Name = value.Name,
-                Apartments = new List<ApartmentModel>(),
-                Buildings = new List<BuildingModel>()
+                Apartments = null,
+                Buildings = null,
             };
 
             DB.Profiles.Add(profile);
 
-            await DB.SaveChangesAsync();
+            DB.SaveChanges();
 
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
-        [HttpGet]
-        [Route("api/profile/get")]
-        public async Task<List<ProfileModel>> Get()
+        [HttpPost]
+        [Route("api/profile/multiple")]
+        public async Task<List<ProfileModel>> Multiple()
         {
             DB = new AppDbContext();
 
-            return await DB.Profiles.ToListAsync();
+            var result = await DB.Profiles.ToListAsync();
+
+            return result;
         }
 
-        [HttpGet]
-        [Route("api/profile/get/{id}")]
-        public async Task<ProfileModel> Get(string id)
+        [HttpPost]
+        [Route("api/profile/single")]
+        public async Task<ProfileModel> Single([FromBody]ProfileModel value)
         {
             DB = new AppDbContext();
 
-            return await DB.Profiles.SingleAsync(p => p.ID == id);
+            var result = await DB.Profiles.SingleAsync(p => p.ID == value.ID);
+
+            result.User = await DB.Users.SingleAsync(u => u.Id == result.ID);
+
+            return result;
+        }
+
+        [HttpPost]
+        [Route("api/profile/single/email")]
+        public async Task<ProfileModel> SingleByEmail([FromBody]ProfileModel value)
+        {
+            DB = new AppDbContext();
+
+            var result = await DB.Profiles.SingleAsync(p => p.User.Email == value.User.Email);
+
+            result.User = await DB.Users.SingleAsync(u => u.Email == value.User.Email);
+
+            return result;
         }
 
         [HttpPost]
         [Route("api/profile/assign/apartment")]
-        public async Task<HttpResponseMessage> AssignApartment([FromBody]ProfileActionApartmentModel value)
+        public async Task<HttpResponseMessage> AssignApartment([FromBody]ProfileModel value)
         {
             DB = new AppDbContext();
 
-            var P = await DB.Profiles.SingleAsync(p => p.ID == value.ProfileID);
-            var A = await DB.Apartments.SingleAsync(a => a.ID == value.ApartmentID);
+            var P = await DB.Profiles.SingleAsync(p => p.ID == value.ID);
+            var A = await DB.Apartments.SingleAsync(a => a.ID == value.Apartments[0].ID);
 
             if (!P.Apartments.Contains(A))
             {
@@ -99,12 +109,12 @@ namespace Api.Controllers
 
         [HttpPost]
         [Route("api/profile/assign/building")]
-        public async Task<HttpResponseMessage> AssignBuilding([FromBody]ProfileActionBuildingModel value)
+        public async Task<HttpResponseMessage> AssignBuilding([FromBody]ProfileModel value)
         {
             DB = new AppDbContext();
 
-            var P = await DB.Profiles.SingleAsync(p => p.ID == value.ProfileID);
-            var B = await DB.Buildings.SingleAsync(b => b.ID == value.BuildingID);
+            var P = await DB.Profiles.SingleAsync(p => p.ID == value.ID);
+            var B = await DB.Buildings.SingleAsync(b => b.ID == value.Buildings[0].ID);
 
             if (!P.Buildings.Contains(B))
             {
@@ -117,12 +127,12 @@ namespace Api.Controllers
 
         [HttpPost]
         [Route("api/profile/remove/apartment")]
-        public async Task<HttpResponseMessage> RemoveApartment([FromBody]ProfileActionApartmentModel value)
+        public async Task<HttpResponseMessage> RemoveApartment([FromBody]ProfileModel value)
         {
             DB = new AppDbContext();
 
-            var P = await DB.Profiles.SingleAsync(p => p.ID == value.ProfileID);
-            var A = await DB.Apartments.SingleAsync(a => a.ID == value.ApartmentID);
+            var P = await DB.Profiles.SingleAsync(p => p.ID == value.ID);
+            var A = await DB.Apartments.SingleAsync(a => a.ID == value.Apartments[0].ID);
 
             if (P.Apartments.Contains(A))
             {
@@ -135,12 +145,12 @@ namespace Api.Controllers
 
         [HttpPost]
         [Route("api/profile/remove/building")]
-        public async Task<HttpResponseMessage> RemoveBuilding([FromBody]ProfileActionBuildingModel value)
+        public async Task<HttpResponseMessage> RemoveBuilding([FromBody]ProfileModel value)
         {
             DB = new AppDbContext();
 
-            var P = await DB.Profiles.SingleAsync(p => p.ID == value.ProfileID);
-            var B = await DB.Buildings.SingleAsync(b => b.ID == value.BuildingID);
+            var P = await DB.Profiles.SingleAsync(p => p.ID == value.ID);
+            var B = await DB.Buildings.SingleAsync(b => b.ID == value.Buildings[0].ID);
 
             if (P.Buildings.Contains(B))
             {

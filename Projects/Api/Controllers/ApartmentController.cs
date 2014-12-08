@@ -23,7 +23,7 @@ namespace Api.Controllers
 
         [HttpPost]
         [Route("api/apartment/create")]
-        public async Task<HttpResponseMessage> Create([FromBody]ApartmentModel value)
+        public HttpResponseMessage Create([FromBody]ApartmentModel value)
         {
             DB = new AppDbContext();
 
@@ -31,32 +31,38 @@ namespace Api.Controllers
             {
                 ID = Guid.NewGuid().ToString(),
                 Number = value.Number,
-                Tenants = new List<ProfileModel>(),
+                Tenants = null,
                 BuildingID = value.BuildingID,
-                Building = await DB.Buildings.SingleAsync(b => b.ID == value.BuildingID)
+                Building = DB.Buildings.Single(b => b.ID == value.BuildingID)
             };
 
             DB.Apartments.Add(O);
 
-            await DB.SaveChangesAsync();
+            DB.SaveChanges();
 
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
-        [HttpGet]
-        [Route("api/apartment/get")]
-        public async Task<List<ApartmentModel>> Get()
+        [HttpPost]
+        [Route("api/apartment/multiple")]
+        public async Task<List<ApartmentModel>> Multiple()
         {
             DB = new AppDbContext();
-            return await DB.Apartments.ToListAsync();
+
+            var result = await DB.Apartments.ToListAsync();
+
+            return result;
         }
 
-        [HttpGet]
-        [Route("api/apartment/get/{id}")]
-        public async Task<ApartmentModel> Get(string id)
+        [HttpPost]
+        [Route("api/apartment/single")]
+        public async Task<ApartmentModel> Single([FromBody]ApartmentModel value)
         {
             DB = new AppDbContext();
-            return await DB.Apartments.SingleAsync(a => a.ID == id);
+
+            var result = await DB.Apartments.SingleAsync(a => a.ID == value.ID);
+
+            return result;
         }
 
     }

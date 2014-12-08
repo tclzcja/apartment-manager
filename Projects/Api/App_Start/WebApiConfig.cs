@@ -28,6 +28,8 @@ namespace Api
             );
 
             config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
         }
     }
 }
