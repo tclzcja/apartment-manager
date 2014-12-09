@@ -3,14 +3,16 @@
 <head>
     <title>Main page</title>
     <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="../Api/Scripts/jquery-ui-1.11.2.custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="../Api/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../Api/Scripts/jquery-ui-1.11.2.custom/jquery-ui.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
 
 <div id="login">
 	<!--Login screen-->
-	<p>Please provide your identification codes:</p>
+	<h3>Welcome!<br> Please provide your identification codes:</h3>
 	<p>E-mail:</p>
     <input type="email" name="email">
 	<p>Password:</p>
@@ -24,7 +26,7 @@ Access Denied
 
 <div id="roleChoice">
 	<!--Role choice screen-->
-  <p>Please select your role:</p>
+  <h3>Please select your role</h3>
     <input type="button" value="Tenant" onClick="accessTenantMain()">
     <input type="button" value="Superintendent" onClick="accessSuperMain()">
     <input type="button" value="Building owner" onClick="accessOwnerMain()">
@@ -32,7 +34,7 @@ Access Denied
 
 <div id="headerTenant">
 	<!--Tenant's header all across the app-->
-	<p>Tenant Connect</p>
+	<h3>Tenant Connect</h3>
     <p>Tenant: ---</p>
     <p><input type="button" value="Logout" onClick="main()"></p>
     <hr>
@@ -40,7 +42,7 @@ Access Denied
 
 <div id="headerSuper">
 	<!--Super's header all across the app-->
-	<p>Superintendent Connect</p>
+	<h3>Superintendent Connect</h3>
     <p>Superintendent: ---</p>
     <p><input type="button" value="Logout" onClick="main()"></p>
     <hr>
@@ -48,7 +50,7 @@ Access Denied
 
 <div id="headerOwner">
 	<!--Owner's header all across the app-->
-	<p>Owner Connect</p>
+	<h3>Owner Connect</h3>
     <p>Owner: ---</p>
     <p><input type="button" value="Logout" onClick="main()"></p>
     <hr>
@@ -57,22 +59,24 @@ Access Denied
 <div id="tenantMain">
 	<!--Tenant's homepage-->
     <input type="button" value="View open requests" onClick="displayOngoingRequests()">
-    <p>Open a new request:</p>
-    <ol>
-    	<li>Fix me!</li>
-        <ul>
-        	<li>Category 1</li>
-            <ul>
-            	<li>Request type 1 <input type="button" value="Send" onClick="WRCreationForm()"></li>
-                <li>Request type 2 <input type="button" value="Send" onClick="WRCreationForm()"></li>
+    <h3>Open a new request</h3>
+    <ul style="width:150px;" id="menu">
+    	<li>Fix me!
+            <ul style="width:150px;">
+                <li>Category 1
+                    <ul style="width:150px;">
+                        <li class="reqLaunch">Request type 1</li>
+                        <li class="reqLaunch">Request type 2</li>
+                    </ul>
+                </li>
+                <li>Category 2</li>
             </ul>
-            <li>Category 2</li>
-        </ul>
+        </li>
         <li>Infestations</li>
         <li>Outdoor maintenance</li>
         <li>Doorman notifications</li>
-    </ol>
-    </div>
+    </ul>
+</div>
 
 <div id="superMain">
 	<!--Superintendent's homepage-->
@@ -86,6 +90,7 @@ Access Denied
 
 <div id=WRCreationForm>
 	<!--Creation form of the Work request-->
+    <h3>New request</h3>
     <p>Building: <select></select></p>
     <p>Apartment: <select></select></p>
     <p>Details: <input type="text"></p>
@@ -94,14 +99,14 @@ Access Denied
 
 <div id="displayOngoingRequests">
 	<!--Ongoing requests display for all profiles-->
-  <p>Ongoing requests:</p>
-    <table width="527" border="1">
+  <h3>Ongoing requests</h3>
+    <table border="1">
   <tbody>
     <tr>
-      <th width="107" scope="col">Work request #</th>
-      <th width="187" scope="col">Type</th>
-      <th width="149" scope="col">Status</th>
-      <th width="56" scope="col">Details</th>
+      <th scope="col">Work request #</th>
+      <th scope="col">Type</th>
+      <th scope="col">Status</th>
+      <th scope="col">Details</th>
     </tr>
     <tr>
       <!--Current content of this table fake and must be replaced by dynamic content depending on the attributes of the user-->
@@ -123,13 +128,13 @@ Access Denied
 
 <div id="detailViewWR">
 	<!--Shows the detailed view of a work request-->
-	<p>Detailed view:</p>
+	<h3>Detailed view</h3>
   <p>Tenant information:</p>
-    <table width="527" border="1">
+    <table border="1">
   <tbody>
     <tr>
-      <th width="193" align="left" scope="row">Full name</th>
-      <td width="318">...</td>
+      <th align="left" scope="row">Full name</th>
+      <td>...</td>
     </tr>
     <tr>
       <th align="left" scope="row">Building</th>
@@ -142,11 +147,11 @@ Access Denied
   </tbody>
 </table>
 	<p>Work request:</p>
-<table width="527" border="1">
+<table border="1">
   <tbody>
     <tr>
-      <th width="193" align="left" scope="row">Work Request ID</th>
-      <td width="318">...</td>
+      <th align="left" scope="row">Work Request ID</th>
+      <td >...</td>
     </tr>
     <tr>
       <th align="left" scope="row">Work Request Type</th>
@@ -175,11 +180,11 @@ Access Denied
   </tbody>
 </table>
 <p>Status:</p>
-<table width="527" border="1">
+<table border="1">
   <tbody>
     <tr>
-      <th width="193" align="left" scope="row">Current status</th>
-      <td width="318">...</td>
+      <th align="left" scope="row">Current status</th>
+      <td>...</td>
     </tr>
   </tbody>
 </table>
@@ -193,6 +198,7 @@ Access Denied
 
 <div id="firstResponse">
 	<!--Screen in which the superintendent first responds to the work request-->
+    <h3>Request acknowledgement</h3>
     <p>Planned date of resolution: <input type="date"></p>
     <p>First response: <input type="text"></p>    
     <input type="submit" onClick="firstResponseSubmit()">
@@ -200,9 +206,17 @@ Access Denied
 
 <div id="resolution">
 	<!--Screen in which the superintendent closes the work request-->
+    <h3>Request resolution</h3>
     <p>Date of resolution: <input type="date"></p>
     <input type="submit" onClick="resolutionSubmit()">
 </div>
+
+<script>
+	$( "#menu" ).menu();
+	
+	$(".reqLaunch").click(function() { 
+	WRCreationForm(); });
+</script>
 
 </body>
 </html>
