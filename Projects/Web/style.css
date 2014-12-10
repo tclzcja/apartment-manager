@@ -2,11 +2,22 @@
 /* CSS Document */
 
 div {
-	background: linear-gradient(to bottom right, #005CFF, #00EBFF);
+	background: linear-gradient(to bottom right, #2F2F2D, #5D5152);
 	border-radius:25px;
-	color:#FFFFFF;
-	padding:20px;
-	border:5px solid #00FFFB
+	color:#DADAD8;
+	font-family:arial;
+	padding:5%;
+	border:5px solid #000000
+}
+
+
+.divTop {
+	background: linear-gradient(to bottom right, #2F2F2D, #5D5152);
+	border-radius:25px;
+	color:#DADAD8;
+	font-family:arial;
+	padding:1%;
+	border:5px solid #000000
 }
 
 h3 {
@@ -15,17 +26,107 @@ h3 {
 
 th {
 	background-color:#2200FF;
-	padding-left: 30px;
-	padding-right: 30px;
+	padding-left: 80px;
+	padding-right: 80px;
 }
 	
 td {
 	background-color:#C1FEFF;
 	color:#000000;
-	padding-left: 30px;
-	padding-right: 30px;
+	padding-left: 80px;
+	padding-right: 80px;
 }
 
 #menu {
 	font-size: 12px;
+	font-family:arial;
+}
+	
+.myButtonLogin {
+	
+	background-color:#BF1212;
+	
+	-moz-border-radius:20px;
+	
+	-webkit-border-radius:20px;
+	
+	border-radius:10px;
+	
+	border:1px solid #000000;
+	
+	display:inline-block;
+	
+	cursor:pointer;
+	
+	color:#ffffff;
+	
+	font-family:arial;
+
+	font-size:17px;
+	
+	padding:5px 20px;
+	
+	text-decoration:none;
+	
+	text-shadow:0px 1px 0px #2f6627;
+
+}
+
+
+.myButtonLogin:hover {
+	background-color:#7B0E0E;
+}
+
+
+.myButtonLogin:active {
+	
+	position:relative;
+	
+	top:1px;
+
+}
+
+
+.myButtonOther {
+	
+	background-color:#E5E5E5;
+	
+	-moz-border-radius:20px;
+	
+	-webkit-border-radius:20px;
+	
+	border-radius:10px;
+	
+	border:1px solid #000000;
+	
+	display:inline-block;
+	
+	cursor:pointer;
+	
+	color:#000000;
+	
+	font-family:arial;
+
+	font-size:17px;
+	
+	padding:5px 20px;
+	
+	text-decoration:none;
+	
+	text-shadow:0px 0px 0px #2f6627;
+
+}
+
+
+.myButtonOther:hover {
+	background-color:#CCCCCC;
+}
+
+
+.myButtonOther:active {
+	
+	position:relative;
+	
+	top:1px;
+
 }

@@ -12,12 +12,13 @@
 
 <div id="login">
 	<!--Login screen-->
-	<h3>Welcome!<br> Please provide your identification codes:</h3>
-	<p>E-mail:</p>
-    <input type="email" name="email">
-	<p>Password:</p>
-	<input type="password"  name="Password">
-    <input type="submit" value="Connection" onClick="connection()">
+	<h2>Welcome to Tenant Connect!</h2>
+	<p><i>Please provide your login credentials:</I>
+	<p>E-mail:
+    	<br><input type="email" name="email">
+	<p>Password:
+	<br><input type="password"  name="Password">
+	<p><input type="submit" value="Login" onClick="connection()" class="myButtonLogin">
 </div>
 
 <div id="deny">
@@ -27,16 +28,16 @@ Access Denied
 <div id="roleChoice">
 	<!--Role choice screen-->
   <h3>Please select your role</h3>
-    <input type="button" value="Tenant" onClick="accessTenantMain()">
-    <input type="button" value="Superintendent" onClick="accessSuperMain()">
-    <input type="button" value="Building owner" onClick="accessOwnerMain()">
+    <input type="button" value="Tenant" onClick="accessTenantMain()" class="myButtonOther">
+    <input type="button" value="Superintendent" onClick="accessSuperMain()" class="myButtonOther">
+    <input type="button" value="Building owner" onClick="accessOwnerMain()" class="myButtonOther">
 </div>
 
 <div id="headerTenant">
 	<!--Tenant's header all across the app-->
 	<h3>Tenant Connect</h3>
     <p>Tenant: ---</p>
-    <p><input type="button" value="Logout" onClick="main()"></p>
+    <p><input type="button" value="Logout" onClick="main()" class="myButtonOther"></p>
     <hr>
 </div>
 
@@ -44,7 +45,7 @@ Access Denied
 	<!--Super's header all across the app-->
 	<h3>Superintendent Connect</h3>
     <p>Superintendent: ---</p>
-    <p><input type="button" value="Logout" onClick="main()"></p>
+    <p><input type="button" value="Logout" onClick="main()" class="myButtonOther"></p>
     <hr>
 </div>
 
@@ -52,13 +53,13 @@ Access Denied
 	<!--Owner's header all across the app-->
 	<h3>Owner Connect</h3>
     <p>Owner: ---</p>
-    <p><input type="button" value="Logout" onClick="main()"></p>
+    <p><input type="button" value="Logout" onClick="main()" class="myButtonOther"></p>
     <hr>
 </div>
 
 <div id="tenantMain">
 	<!--Tenant's homepage-->
-    <input type="button" value="View open requests" onClick="displayOngoingRequests()">
+    <input type="button" value="View open requests" onClick="displayOngoingRequests()" class="myButtonOther">
     <h3>Open a new request</h3>
     <ul style="width:150px;" id="menu">
     	<li>Fix me!
@@ -80,12 +81,12 @@ Access Denied
 
 <div id="superMain">
 	<!--Superintendent's homepage-->
-    <input type="button" value="Manage open requests" onClick="displayOngoingRequests()">
+    <input type="button" value="Manage open requests" onClick="displayOngoingRequests()" class="myButtonOther">
 </div>
 
 <div id="ownerMain">
 	<!--Owner's homepage-->
-    <input type="button" value="View open requests" onClick="displayOngoingRequests()">
+    <input type="button" value="View open requests" onClick="displayOngoingRequests()" class="myButtonOther">
 </div>
 
 <div id=WRCreationForm>
@@ -94,7 +95,7 @@ Access Denied
     <p>Building: <select></select></p>
     <p>Apartment: <select></select></p>
     <p>Details: <input type="text"></p>
-    <p><input type="submit" onClick="WRCreate()"></p>
+    <p><input type="submit" onClick="WRCreate()" class="myButtonOther"></p>
 </div>
 
 <div id="displayOngoingRequests">
@@ -123,7 +124,7 @@ Access Denied
     </tr>
   </tbody>
 </table>
-<p><input type="button" value="Back" onClick="backToMain()"></p>
+<p><input type="button" value="Back" onClick="backToMain()" class="myButtonOther"></p>
 </div>
 
 <div id="detailViewWR">
@@ -193,7 +194,7 @@ Access Denied
 
 <div id="UpdateWR">
 	<!--Superintendent's buton to respond to workrequests (appears in WR's detailed view)-->
-    	<p><input type="button" value="Update Work Request" onClick="updateWR()"></p>
+    	<p><input type="button" value="Update Work Request" onClick="updateWR()" class="myButtonOther"></p>
 </div>
 
 <div id="firstResponse">
@@ -201,14 +202,14 @@ Access Denied
     <h3>Request acknowledgement</h3>
     <p>Planned date of resolution: <input type="date"></p>
     <p>First response: <input type="text"></p>    
-    <input type="submit" onClick="firstResponseSubmit()">
+    <input type="submit" onClick="firstResponseSubmit()" class="myButtonOther">
 </div>
 
 <div id="resolution">
 	<!--Screen in which the superintendent closes the work request-->
     <h3>Request resolution</h3>
     <p>Date of resolution: <input type="date"></p>
-    <input type="submit" onClick="resolutionSubmit()">
+    <input type="submit" onClick="resolutionSubmit()" class="myButtonOther">
 </div>
 
 <script>
