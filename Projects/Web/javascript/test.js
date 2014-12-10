@@ -13,7 +13,7 @@
                 Name: "Hello",
             };
 
-            Pool.Core("profile", "register", info, function () {
+            Pool.Core("profile", "register", info, function (data) {
 
                 alert("Great");
             });

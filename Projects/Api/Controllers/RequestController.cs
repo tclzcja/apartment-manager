@@ -112,11 +112,11 @@ namespace Api.Controllers
 
         [HttpPost]
         [Route("api/request/multiple/profile")]
-        public async Task<JsonResult<List<RequestModel>>> MultipleByProfile(string profileid)
+        public async Task<JsonResult<List<RequestModel>>> MultipleByProfile([FromBody]ProfileModel value)
         {
             DB = new AppDbContext();
 
-            var P = await DB.Profiles.SingleAsync(p => p.ID == profileid);
+            var P = await DB.Profiles.SingleAsync(p => p.ID == value.ID);
 
             var result = await DB.Requests.Where(r => r.Apartment.Building.Superintendents.Contains(P)).ToListAsync();
 
