@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Main page</title>
+    <title>Tenant Connect</title>
     <link href="style.css" rel="stylesheet" type="text/css">
     <link href="../Api/Scripts/jquery-ui-1.11.2.custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="../Api/Scripts/jquery-1.10.2.js"></script>
@@ -12,7 +12,9 @@
 
 <div id="login">
 	<!--Login screen-->
-	<h2>Welcome to Tenant Connect!</h2>
+	<h2 align=left>Welcome to Tenant Connect! 
+	<img src="TenantConnectIcon.jpg" align="right" width=100 height=100>
+	</h2>
 	<p><i>Please provide your login credentials:</I>
 	<p>E-mail:
     	<br><input type="email" name="email">
@@ -27,21 +29,23 @@ Access Denied
 
 <div id="roleChoice">
 	<!--Role choice screen-->
-  <h3>Please select your role</h3>
+  <h3>Please select your role:
+<img src="TenantConnectIcon.jpg" align="right" width=100 height=100>
+</h3>
     <input type="button" value="Tenant" onClick="accessTenantMain()" class="myButtonOther">
     <input type="button" value="Superintendent" onClick="accessSuperMain()" class="myButtonOther">
     <input type="button" value="Building owner" onClick="accessOwnerMain()" class="myButtonOther">
 </div>
 
-<div id="headerTenant">
+<div id="headerTenant" class="divTop">
 	<!--Tenant's header all across the app-->
-	<h3>Tenant Connect</h3>
+	<h3>Tenant Connect</h3> <input type="button" value="Logout" align="right" onClick="main()" class="myButtonOther">
     <p>Tenant: ---</p>
-    <p><input type="button" value="Logout" onClick="main()" class="myButtonOther"></p>
+
     <hr>
 </div>
 
-<div id="headerSuper">
+<div id="headerSuper" class="divTop">
 	<!--Super's header all across the app-->
 	<h3>Superintendent Connect</h3>
     <p>Superintendent: ---</p>
@@ -49,7 +53,7 @@ Access Denied
     <hr>
 </div>
 
-<div id="headerOwner">
+<div id="headerOwner" class="divTop">
 	<!--Owner's header all across the app-->
 	<h3>Owner Connect</h3>
     <p>Owner: ---</p>
