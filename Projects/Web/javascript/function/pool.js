@@ -4,8 +4,8 @@
 
     _body.Reset = function () {
         sessionStorage.clear();
-        //sessionStorage.setItem("Path_Api", "http://am.tale.land");
-        sessionStorage.setItem("Path_Api", "http://localhost:8080");
+        sessionStorage.setItem("Path_Api", "http://am.tale.land");
+        //sessionStorage.setItem("Path_Api", "http://localhost:8080");
     }
 
     _body.Core = function (type, action, info, callback) {

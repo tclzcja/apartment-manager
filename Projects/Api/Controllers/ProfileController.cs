@@ -43,6 +43,7 @@ namespace Api.Controllers
                 Name = value.Name,
                 Apartments = null,
                 Buildings = null,
+                IsSuperintendent = false
             };
 
             DB.Profiles.Add(profile);
@@ -117,6 +118,7 @@ namespace Api.Controllers
             DB = new AppDbContext();
 
             var P = await DB.Profiles.SingleAsync(p => p.ID == value.ID);
+            P.IsSuperintendent = true;
             var BID = value.Buildings[0].ID;
             var B = await DB.Buildings.SingleAsync(b => b.ID == BID);
 
@@ -163,6 +165,20 @@ namespace Api.Controllers
                 P.Buildings.Remove(B);
                 B.Superintendents.Remove(P);
             }
+
+            return new HttpResponseMessage(HttpStatusCode.OK);
+        }
+
+        [HttpPost]
+        [Route("api/profile/lvlup")]
+        public async Task<HttpResponseMessage> Lvlup([FromBody]ProfileModel value)
+        {
+            DB = new AppDbContext();
+
+            var P = await DB.Profiles.SingleAsync(p => p.ID == value.ID);
+            P.IsSuperintendent = true;
+
+            await DB.SaveChangesAsync();
 
             return new HttpResponseMessage(HttpStatusCode.OK);
         }

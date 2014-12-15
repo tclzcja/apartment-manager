@@ -52,6 +52,12 @@ function Go_Homepage() {
     $("article").hide();
     $("#homepage").show();
 
+    if (Auth.Current.Profile().IsSuperintendent == false) {
+        $("#homepage-building").hide();
+        $("#homepage-apartment").hide();
+        $("#homepage-user").hide();
+    }
+
     $("#homepage-building").off().on("click", function () {
         Go_Building();
     });
@@ -70,6 +76,17 @@ function Go_Homepage() {
 
     $("#homepage-logout").off().on("click", function () {
         Go_Login();
+    });
+
+    $("#homepage-lvlup").off().on("click", function () {
+
+        var info = {
+            ID: Auth.Current.Profile().ID
+        }
+
+        Pool.Core("profile", "lvlup", info, function () {
+            Go_Login();
+        });
     });
 
 }
@@ -268,6 +285,9 @@ function Go_User() {
 function Go_Request() {
 
     function Render_Table() {
+        if (Auth.Current.Profile().IsSuperintendent == false) {
+            $("#request-table-my").hide();
+        }
         $("#request-create-apartment").html("");
         var ticket = {
             ID: Auth.Current.Profile().ID
