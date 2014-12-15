@@ -31,7 +31,6 @@ namespace Api.Controllers
             {
                 ID = Guid.NewGuid().ToString(),
                 Category = value.Category,
-                Sub = value.Sub,
                 RequestTime = System.DateTime.UtcNow,
                 Status = StatusType.New,
                 ApartmentID = value.ApartmentID,
@@ -64,7 +63,7 @@ namespace Api.Controllers
             R.ResponseSuperintenentID = value.ResponseSuperintenentID;
             R.ResponseSuperintenent = await DB.Profiles.SingleAsync(p => p.ID == value.ResponseSuperintenentID);
             R.Status = StatusType.Responsed;
-            R.PlannedTime = value.PlannedTime;
+            R.PlannedTime = System.DateTime.UtcNow;
 
             await DB.SaveChangesAsync();
 
@@ -89,49 +88,49 @@ namespace Api.Controllers
 
         [HttpPost]
         [Route("api/request/multiple")]
-        public async Task<JsonResult<List<RequestModel>>> Multiple()
+        public async Task<List<RequestModel>> Multiple([FromBody]ProfileModel value)
         {
             DB = new AppDbContext();
 
-            var result = await DB.Requests.ToListAsync();
+            var result = await DB.Requests.Where(r => r.RequestTenantID == value.ID).ToListAsync();
 
-            foreach (var r in result)
-            {
-                r.Apartment.Building = null;
-                r.Apartment.Tenants = null;
-
-                r.RequestTenant.Apartments = null;
-                r.RequestTenant.Buildings = null;
-
-                r.ResponseSuperintenent.Apartments = null;
-                r.ResponseSuperintenent.Buildings = null;
-            }
-
-            return Json(result);
+            return result;
         }
 
         [HttpPost]
         [Route("api/request/multiple/profile")]
-        public async Task<JsonResult<List<RequestModel>>> MultipleByProfile([FromBody]ProfileModel value)
+        public async Task<List<RequestModel>> MultipleByProfile([FromBody]ProfileModel value)
         {
             DB = new AppDbContext();
 
             var P = await DB.Profiles.SingleAsync(p => p.ID == value.ID);
 
-            var result = await DB.Requests.Where(r => r.Apartment.Building.Superintendents.Contains(P)).ToListAsync();
+            var result = new List<RequestModel>();
 
-            return Json(result);
+            foreach (var b in P.Buildings)
+            {
+                foreach (var a in b.Apartments)
+                {
+                    result.AddRange(await DB.Requests.Where(r => r.ApartmentID == a.ID).ToListAsync());
+                }
+            }
+
+            result = result.OrderBy(x => x.Status).ToList();
+
+            //var result = await DB.Requests.Where(r => r.Apartment.Building.Superintendents.Contains(P)).ToListAsync();
+
+            return result;
         }
 
         [HttpPost]
         [Route("api/request/single")]
-        public async Task<JsonResult<RequestModel>> Single([FromBody]RequestModel value)
+        public async Task<RequestModel> Single([FromBody]RequestModel value)
         {
             DB = new AppDbContext();
 
             var result = await DB.Requests.SingleAsync(r => r.ID == value.ID);
 
-            return Json(result);
+            return result;
         }
     }
 }

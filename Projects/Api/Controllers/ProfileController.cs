@@ -96,13 +96,16 @@ namespace Api.Controllers
             DB = new AppDbContext();
 
             var P = await DB.Profiles.SingleAsync(p => p.ID == value.ID);
-            var A = await DB.Apartments.SingleAsync(a => a.ID == value.Apartments[0].ID);
+            var AID = value.Apartments[0].ID;
+            var A = await DB.Apartments.SingleAsync(a => a.ID == AID);
 
             if (!P.Apartments.Contains(A))
             {
                 P.Apartments.Add(A);
                 A.Tenants.Add(P);
             }
+
+            await DB.SaveChangesAsync();
 
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
@@ -114,13 +117,16 @@ namespace Api.Controllers
             DB = new AppDbContext();
 
             var P = await DB.Profiles.SingleAsync(p => p.ID == value.ID);
-            var B = await DB.Buildings.SingleAsync(b => b.ID == value.Buildings[0].ID);
+            var BID = value.Buildings[0].ID;
+            var B = await DB.Buildings.SingleAsync(b => b.ID == BID);
 
             if (!P.Buildings.Contains(B))
             {
                 P.Buildings.Add(B);
                 B.Superintendents.Add(P);
             }
+
+            await DB.SaveChangesAsync();
 
             return new HttpResponseMessage(HttpStatusCode.OK);
         }

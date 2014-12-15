@@ -7,12 +7,7 @@ namespace Api.Models
 {
     public enum CategoryType
     {
-        insect = 0
-    }
-
-    public enum SubType
-    {
-        bedbug = 0
+        InsectBedbug = 0
     }
 
     public enum StatusType

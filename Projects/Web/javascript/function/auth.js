@@ -10,11 +10,9 @@
     }
 
     _body.Reset = function () {
-
         sessionStorage.removeItem("Auth_Pass");
         sessionStorage.removeItem("Auth_Header");
         sessionStorage.removeItem("Auth_Profile");
-
     }
 
     _body.Auth = function (token, email, callback) {

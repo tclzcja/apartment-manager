@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Tenant Connect</title>
+    <link href="../css/index.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../javascript/library/jquery.min.js"></script>
+    <script type="text/javascript" src="../javascript/library/jquery.UI.min.js"></script>
+    <script type="text/javascript" src="../javascript/function/pool.js"></script>
+    <script type="text/javascript" src="../javascript/function/auth.js"></script>
+    <script type="text/javascript" src="../javascript/page/index.js"></script>
+</head>
+<body>
+    <main>
+        <article id="login">
+            <label>Login</label>
+            <section>
+                <input id="login-email" type="text" value="cja@gmail.com" />
+                <input id="login-password" type="password" value="default" />
+                <input id="login-submit" type="button" value="Login" />
+                <input id="login-name" type="text" />
+                <input id="login-register" type="button" value="Register" />
+            </section>
+        </article>
+        <article id="homepage">
+            <label>Homepage</label>
+            <section>
+                <input id="homepage-building" type="button" value="Building" />
+                <input id="homepage-apartment" type="button" value="Apartment" />
+                <input id="homepage-user" type="button" value="User" />
+                <input id="homepage-request" type="button" value="Request" />
+                <input id="homepage-logout" type="button" value="Logout" />
+            </section>
+        </article>
+        <article id="building">
+            <label>Building</label>
+            <section id="building-create">
+                <input id="building-create-name" type="text" />
+                <input id="building-create-address" type="text" />
+                <input id="building-create-submit" type="button" value="Create" />
+                <input id="building-create-back" type="button" value="Back" />
+            </section>
+            <section id="building-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Address</td>
+                            <td>Apartments</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+        </article>
+        <article id="apartment">
+            <label>Apartment</label>
+            <section id="apartment-create">
+                <input id="apartment-create-number" type="number" />
+                <select id="apartment-create-building">
+                    <option>...</option>
+                </select>
+                <input id="apartment-create-submit" type="button" value="Create" />
+                <input id="apartment-create-back" type="button" value="Back" />
+            </section>
+            <section id="apartment-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Number</td>
+                            <td>Building</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+        </article>
+        <article id="user">
+            <label>User</label>
+            <section id="user-assign">
+                <select id="user-assign-apartment"></select>
+                <input type="button" id="user-assign-apartment-assign" value="Assign" />
+                <select id="user-assign-building"></select>
+                <input type="button" id="user-assign-building-assign" value="Assign" />
+                <input type="button" id="user-assign-back" value="Back" />
+            </section>
+            <section id="user-table">
+                <table>
+                    <tbody></tbody>
+                </table>
+            </section>
+        </article>
+        <article id="request">
+            <label>Request</label>
+            <section id="request-create">
+                <select id="request-create-apartment"></select>
+                <select id="request-create-category">
+                    <option value="0">Insect - Bedbug</option>
+                </select>
+                <input id="request-create-submit" type="button" value="Create" />
+                <input id="request-create-back" type="button" value="Back" />
+            </section>
+            <label>New</label>
+            <section id="request-table-new">
+                <table>
+                    <tbody></tbody>
+                </table>
+            </section>
+            <label>Responded</label>
+            <section id="request-table-responsed">
+                <table>
+                    <tbody></tbody>
+                </table>
+            </section>
+            <label>Done</label>
+            <section id="request-table-done">
+                <table>
+                    <tbody></tbody>
+                </table>
+            </section>
+            <label>Under my management</label>
+            <section id="request-table-my">
+                <table>
+                    <tbody></tbody>
+                </table>
+            </section>
+        </article>
+    </main>
+</body>
+</html>

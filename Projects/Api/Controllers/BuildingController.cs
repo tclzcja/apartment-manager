@@ -50,12 +50,34 @@ namespace Api.Controllers
         }
 
         [HttpPost]
+        [Route("api/building/delete")]
+        public async Task<HttpResponseMessage> Delete([FromBody]BuildingModel value)
+        {
+            DB = new AppDbContext();
+            var result = await DB.Buildings.SingleAsync(b => b.ID == value.ID);
+            DB.Buildings.Remove(result);
+            await DB.SaveChangesAsync();
+            return new HttpResponseMessage(HttpStatusCode.OK);
+        }
+
+        [HttpPost]
         [Route("api/building/multiple")]
         public async Task<List<BuildingModel>> Multiple()
         {
             DB = new AppDbContext();
 
             var result = await DB.Buildings.ToListAsync();
+
+            return result;
+        }
+
+        [HttpPost]
+        [Route("api/building/multiple/profile")]
+        public async Task<List<BuildingModel>> MultipleByProfile([FromBody]ProfileModel value)
+        {
+            DB = new AppDbContext();
+
+            var result = await DB.Buildings.Where(b => b.Superintendents.Where(p => p.ID == value.ID).Count() > 0).ToListAsync();
 
             return result;
         }

@@ -17,6 +17,8 @@ namespace Api.Models
 
         public string Name { get; set; }
 
+        public bool IsSuperintendent { get; set; }
+
         public virtual List<ApartmentModel> Apartments { get; set; }
 
         public virtual List<BuildingModel> Buildings { get; set; }

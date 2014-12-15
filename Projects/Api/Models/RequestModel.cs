@@ -17,7 +17,6 @@ namespace Api.Models
         public virtual ApartmentModel Apartment { get; set; }
 
         public CategoryType Category { get; set; }
-        public SubType Sub { get; set; }
         public StatusType Status { get; set; }
 
         public System.DateTime? RequestTime { get; set; }

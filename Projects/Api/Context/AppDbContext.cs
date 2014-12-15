@@ -14,7 +14,7 @@ namespace Api.Context
         public DbSet<Models.BuildingModel> Buildings { get; set; }
         public DbSet<Models.RequestModel> Requests { get; set; }
 
-        public AppDbContext() : base("GoDaddyConnection") { }
+        public AppDbContext() : base("LocalConnection") { }
 
         public static AppDbContext Create()
         {
